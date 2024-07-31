@@ -21,6 +21,26 @@
         "type": "github"
       }
     },
+    "iozevka": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1717051310,
+        "narHash": "sha256-KRG+q4tnO6AbhwYCBeO0X1uZeoctYew0YOQiMK4nXXA=",
+        "owner": "oxcl",
+        "repo": "iozevka",
+        "rev": "58c8cbe70713f87370df8c7a1df0afe6dd818b74",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxcl",
+        "repo": "iozevka",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1722087241,
@@ -40,6 +60,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "iozevka": "iozevka",
         "nixpkgs": "nixpkgs",
         "unstable": "unstable"
       }

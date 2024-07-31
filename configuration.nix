@@ -15,12 +15,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.blacklistedKernelModules = [ "hyperv_fb" ];
   boot.loader.timeout = 2;
-  boot.kernelParams = [
-    "quiet"
-    "splash"
-  ];
-  boot.consoleLogLevel = 0;
-  boot.initrd.verbose = false;
 
   boot.initrd.luks.devices."luks-d7d2bfd9-a36a-42cb-8346-34b39a18eddc".device = "/dev/disk/by-uuid/d7d2bfd9-a36a-42cb-8346-34b39a18eddc";
 
@@ -28,10 +22,7 @@
     experimental-features = nix-command flakes
   '';
 
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "user";
+  services.getty.autologinUser = "user";
   programs.sway.enable = true;
 
   networking.hostName = "machine"; # Define your hostname.

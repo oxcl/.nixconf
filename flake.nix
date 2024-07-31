@@ -11,13 +11,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # my custom font
+    iozevka = {
+      url = "github:oxcl/iozevka";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager,... }@inputs :
     let
       system = "x86_64-linux";
+      overlays = [
+        inputs.iozevka.overlays.default
+      ];
       pkgs = import nixpkgs { 
-        inherit system;
+        inherit system overlays;
         config.allowUnfree = true;
       };
       unstable = import inputs.unstable {
