@@ -8,7 +8,6 @@
     package = pkgs.firefox-bin;
   };
 
-  programs.emacs.enable = true;
   programs.chromium.enable = true;
 
   home.packages = with pkgs; [
@@ -24,6 +23,9 @@
     p7zip
     zip
     rar
+    ((emacsPackagesFor emacs29).emacsWithPackages ( epkgs: with epkgs; [
+      treesit-grammars.with-all-grammars
+    ]))
   ];
 
   # Let Home Manager install and manage itself.
