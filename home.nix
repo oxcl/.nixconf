@@ -26,6 +26,7 @@
     ((emacsPackagesFor emacs29).emacsWithPackages ( epkgs: with epkgs; [
       treesit-grammars.with-all-grammars
     ]))
+    direnv
   ];
 
   # Let Home Manager install and manage itself.
