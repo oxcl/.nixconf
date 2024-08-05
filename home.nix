@@ -31,6 +31,8 @@
     bitwarden-cli
     glow
     pv
+    thefuck
+    expect
   ];
 
   # Let Home Manager install and manage itself.
