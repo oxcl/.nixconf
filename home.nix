@@ -14,6 +14,7 @@
     git
     stow # for .dotfiles management
     lsd # ls alternative with icons
+    lsix # display images in the terminal with sixel graphics
     iozevka
     iozevka-nerd
     wl-clipboard # cli clipboard utility for wayland
@@ -27,6 +28,9 @@
       treesit-grammars.with-all-grammars
     ]))
     direnv
+    bitwarden-cli
+    glow
+    pv
   ];
 
   # Let Home Manager install and manage itself.
