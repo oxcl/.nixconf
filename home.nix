@@ -33,6 +33,11 @@
     pv
     thefuck
     expect
+    fzf
+    asciinema
+    asciinema-agg
+    gifsicle
+    htop
   ];
 
   # Let Home Manager install and manage itself.
