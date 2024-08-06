@@ -24,8 +24,10 @@
     p7zip
     zip
     rar
+    emacs-all-the-icons-fonts
     ((emacsPackagesFor emacs29).emacsWithPackages ( epkgs: with epkgs; [
       treesit-grammars.with-all-grammars
+      vterm
     ]))
     direnv
     bitwarden-cli
@@ -38,6 +40,9 @@
     asciinema-agg
     gifsicle
     htop
+    tldr
+    python3
+    python312Packages.pip
   ];
 
   # Let Home Manager install and manage itself.
