@@ -23,7 +23,11 @@
   '';
 
   services.getty.autologinUser = "user";
-  programs.sway.enable = true;
+
+  programs.sway = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
   networking.hostName = "machine"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

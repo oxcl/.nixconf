@@ -1,14 +1,13 @@
-{ config, pkgs, unstable,inputs, ... }:
+{ config, pkgs, unstable,inputs, ... }: with builtins;
 {
   home.username = "user";
   home.homeDirectory = "/home/user";
 
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-bin;
+    package = unstable.firefox-bin;
+    policies = (fromJSON (readFile ./policies.json)).policies;
   };
-
-  programs.chromium.enable = true;
 
   home.packages = with pkgs; [
     git
