@@ -3,10 +3,38 @@
   home.username = "user";
   home.homeDirectory = "/home/user";
 
-  programs.firefox = {
+  programs.firefox = let
+  # add extensions you want to install here.
+  extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+    tridactyl
+    darkreader
+    ublock-origin
+  ];
+  extensionDefaults = {
+    "*" = {
+      updates_disabled = true;
+      installation_mode = "blocked";
+    };
+  };
+  extensionPolicy = extensionDefaults // builtins.listToAttrs (map (extension: {
+    name = extension.addonId;
+    value = {
+      default_area = "navbar";
+      updates_disabled = true;
+      installation_mode = "force_installed";
+      install_url = extension.src.url;
+    };
+  }) extensions); 
+  in {
     enable = true;
     package = unstable.firefox-bin;
-    policies = (fromJSON (readFile ./policies.json)).policies;
+    policies = (fromJSON (readFile ./policies.json)).policies // extensionPolicy;
+    profiles.default = {
+      inherit extensions;
+      id = 0;
+      name = "default";
+      isDefault = true;
+    };
   };
 
   home.packages = with pkgs; [

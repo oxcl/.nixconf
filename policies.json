@@ -3,14 +3,14 @@
     "Authentication": {
       "Locked": true
     },
-    "AutofillAdressEnabled": true,
+    "AutofillAddressEnabled": true,
     "AutofillCreditCardEnabled": false,
     "Cookies": {
       "Behavior": "reject-tracker-and-partition-foreign",
       "BehaviorBrivateBrowsing": "reject-tracker-and-partition-foreign",
       "Locked": true
     },
-    "DisableAppUpdates": true,
+    "DisableAppUpdate": true,
     "DisableFeedbackCommands": true,
     "DisableFirefoxStudies": true,
     "DisablePocket" : true,
@@ -41,6 +41,7 @@
     "ExtensionSettings": {
       "*": {
         "installation_mode": "blocked",
+        "default_area": "navbar",
         "updates_disabled": true
       }
     },
@@ -72,7 +73,6 @@
     "NewTabPage": false,
     "NoDefaultBookmarks": true,
     "OfferToSaveLogins": false,
-    "OfferToSaveLoginsDefault": false,
     "OverrideFirstRunPage": "",
     "OverridePostUpdatePage": "",
     "PasswordManagerEnabled": false,
@@ -119,14 +119,6 @@
         "Value": true,
         "Status": "locked"
       },
-      "dom.security.https_only_mode": {
-        "Value": true,
-        "Status": "locked"
-      },
-      "dom.security.https_only_mode_ever_enabled": {
-        "Value": true,
-        "Status": "locked"
-      },
       "toolkit.legacyUserProfileCustomizations.stylesheets": {
         "Value": true,
         "Status": "locked"
@@ -134,7 +126,23 @@
       "layout.css.color-mix.enabled": {
         "Value": true,
         "Status": "locked"
+      },
+      "browser.translation.automaticallyPopup": {
+        "Value": false,
+        "Status": "locked"
       }
+    },
+    "PromptForDownloadLocation": false,
+    "RequestedLocales": "en-US,de,fa-IR",
+    "SearchSuggestEnabled": false,
+    "TranslateEnabled": true,
+    "UserMessaging": {
+      "ExtensionRecommendations": false,
+      "FeatureRecommendations": false,
+      "UrlbarInterventions": false,
+      "SkipOnboarding": true,
+      "MoreFromMozilla": true,
+      "Locked": true
     }
   }
 }
