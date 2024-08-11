@@ -38,6 +38,26 @@
         "type": "github"
       }
     },
+    "gruvbox-material-gtk": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1706689896,
+        "narHash": "sha256-BqVY0UwWClzQFGngsdgtGGPiY+BnUm/s0mH+IVIDFI0=",
+        "owner": "oxcl",
+        "repo": "gruvbox-material-gtk-nix",
+        "rev": "dec81a8e735e001622aa8ecf302340b45970a977",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxcl",
+        "repo": "gruvbox-material-gtk-nix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -98,6 +118,7 @@
     "root": {
       "inputs": {
         "firefox-addons": "firefox-addons",
+        "gruvbox-material-gtk": "gruvbox-material-gtk",
         "home-manager": "home-manager",
         "iozevka": "iozevka",
         "nixpkgs": "nixpkgs",

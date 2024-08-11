@@ -16,21 +16,22 @@
       installation_mode = "blocked";
     };
   };
-  extensionPolicy = extensionDefaults // builtins.listToAttrs (map (extension: {
-    name = extension.addonId;
-    value = {
-      default_area = "navbar";
-      updates_disabled = true;
-      installation_mode = "force_installed";
-      install_url = extension.src.url;
-    };
-  }) extensions); 
+  extensionPolicy = {
+    ExtensionSettings = extensionDefaults // builtins.listToAttrs (map (extension: {
+      name = extension.addonId;
+      value = {
+        default_area = "navbar";
+        updates_disabled = true;
+        installation_mode = "force_installed";
+        install_url = extension.src.url;
+      };
+    }) extensions); 
+  };
   in {
     enable = true;
     package = unstable.firefox-bin;
     policies = (fromJSON (readFile ./policies.json)).policies // extensionPolicy;
     profiles.default = {
-      inherit extensions;
       id = 0;
       name = "default";
       isDefault = true;
@@ -70,6 +71,7 @@
     tldr
     python3
     python312Packages.pip
+    gruvbox-material-gtk
   ];
 
   # enable dark mode

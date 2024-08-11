@@ -10,8 +10,15 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # TODO: remove this and add a pelz template for gtk themeing
+    gruvbox-material-gtk = {
+      url = "github:oxcl/gruvbox-material-gtk-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -27,6 +34,7 @@
       system = "x86_64-linux";
       overlays = [
         inputs.iozevka.overlays.default
+        inputs.gruvbox-material-gtk.overlays.default
       ];
       pkgs = import nixpkgs { 
         inherit system overlays;
