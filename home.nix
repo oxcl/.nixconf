@@ -1,4 +1,4 @@
-{ config, pkgs, unstable,inputs, ... }: with builtins;
+{ config, pkgs, unstable,lib,inputs, ... }: with builtins;
 {
   home.username = "user";
   home.homeDirectory = "/home/user";
@@ -72,6 +72,10 @@
     python3
     python312Packages.pip
     gruvbox-material-gtk
+    vazir-fonts
+    vazir-code-font
+    jetbrains-mono
+    noto-fonts
   ];
 
   # enable dark mode
@@ -81,6 +85,10 @@
     };
   };
 
+  home.activation = {
+    # automatically run my stow script to setup dotfiles in home directory after every home-manager/nixos rebuild
+    stowHome = lib.hm.dag.entryAfter ["writeBoundary"] ''[ -f $HOME/.local/bin/stowhome ] && PATH="$PATH:${pkgs.stow}/bin" $HOME/.local/bin/stowhome'';
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

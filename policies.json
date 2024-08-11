@@ -69,8 +69,9 @@
       "StartPage": "homepage-locked",
       "Locked": true
     },
+    "HttpsOnlyMode": "force_enabled",
     "NetworkPrediction": false,
-    "NewTabPage": false,
+    "NewTabPage": true,
     "NoDefaultBookmarks": true,
     "OfferToSaveLogins": false,
     "OverrideFirstRunPage": "",
@@ -127,14 +128,34 @@
         "Value": true,
         "Status": "locked"
       },
-      "browser.translation.automaticallyPopup": {
+      "browser.translations.automaticallyPopup": {
         "Value": false,
+        "Status": "locked"
+      },
+      "browser.translations.neverTranslateLanguages": {
+        "Value": "fa",
+        "Status": "locked"
+      },
+      "browser.aboutConfig.showWarning": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.newtab.extensionControlled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "browser.newtab.privateAllowed": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "browser.uiCustomization.state": {
+        "Value": "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"save-to-pocket-button\",\"downloads-button\",\"fxa-toolbar-menu-button\",\"unified-extensions-button\",\"ublock0_raymondhill_net-browser-action\",\"addon_darkreader_org-browser-action\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"alltabs-button\"],\"PersonalToolbar\":[\"import-button\",\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\",\"addon_darkreader_org-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"toolbar-menubar\",\"TabsToolbar\",\"unified-extensions-area\"],\"currentVersion\":20,\"newElementCount\":6}",
         "Status": "locked"
       }
     },
     "PromptForDownloadLocation": false,
     "RequestedLocales": "en-US,de,fa-IR",
-    "SearchSuggestEnabled": false,
+    "SearchSuggestEnabled": true,
     "TranslateEnabled": true,
     "UserMessaging": {
       "ExtensionRecommendations": false,
