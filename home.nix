@@ -76,6 +76,9 @@
     vazir-code-font
     jetbrains-mono
     noto-fonts
+    foot
+    rofi-wayland
+    woof
   ];
 
   # enable dark mode

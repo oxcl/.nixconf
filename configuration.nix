@@ -13,10 +13,10 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.blacklistedKernelModules = [ "hyperv_fb" ];
-  boot.loader.timeout = 2;
+  # boot.blacklistedKernelModules = [ "hyperv_fb" ];
+  boot.loader.timeout = 1;
 
-  boot.initrd.luks.devices."luks-d7d2bfd9-a36a-42cb-8346-34b39a18eddc".device = "/dev/disk/by-uuid/d7d2bfd9-a36a-42cb-8346-34b39a18eddc";
+  # boot.initrd.luks.devices."luks-d7d2bfd9-a36a-42cb-8346-34b39a18eddc".device = "/dev/disk/by-uuid/d7d2bfd9-a36a-42cb-8346-34b39a18eddc";
 
   nix.extraOptions = ''
     experimental-features = nix-command flakes
@@ -24,10 +24,12 @@
 
   services.getty.autologinUser = "user";
 
-  programs.sway = {
+  programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
+  # hint electron apps to use wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   networking.hostName = "machine"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
