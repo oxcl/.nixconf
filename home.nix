@@ -51,6 +51,7 @@
     pup # html parser
     p7zip
     zip
+    unzip
     rar
     emacs-all-the-icons-fonts
     ((emacsPackagesFor emacs29).emacsWithPackages ( epkgs: with epkgs; [
@@ -79,6 +80,7 @@
     foot
     rofi-wayland
     woof
+    aria2
   ];
 
   # enable dark mode
