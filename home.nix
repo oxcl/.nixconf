@@ -82,6 +82,7 @@
     woof # open a http server for uploading to current directory. used in .local/bin/serve
     aria2 # cli download manager
     gtrash
+    qrencode
   ];
 
   # enable dark mode
