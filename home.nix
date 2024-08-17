@@ -60,27 +60,28 @@
     ]))
     direnv
     bitwarden-cli
-    glow
-    pv
+    glow # marakdown preview
+    pv # control pipes. used to create typewriter effect in terminal
     thefuck
     expect
     fzf
-    asciinema
-    asciinema-agg
-    gifsicle
+    asciinema # record terminal window
+    asciinema-agg # convert asciinema casts to gifs
+    gifsicle # compress gifs
     htop
     tldr
     python3
     python312Packages.pip
     gruvbox-material-gtk
-    vazir-fonts
-    vazir-code-font
+    vazir-fonts # farsi and arabic font
+    vazir-code-font # farsi and arabic monospace
     jetbrains-mono
-    noto-fonts
+    noto-fonts # last resort font
     foot
     rofi-wayland
-    woof
-    aria2
+    woof # open a http server for uploading to current directory. used in .local/bin/serve
+    aria2 # cli download manager
+    gtrash
   ];
 
   # enable dark mode
