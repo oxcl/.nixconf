@@ -22,8 +22,16 @@
     experimental-features = nix-command flakes
   '';
 
-  services.getty.autologinUser = "user";
-
+  services.displayManager = {
+    autoLogin = {
+      enable = true;
+      user = "user";
+    };
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+  };
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
