@@ -85,6 +85,19 @@
     qrencode
   ];
 
+  systemd.user.enable = true;
+  systemd.user.services = {
+    user-scripts = {
+      Unit.Description = "local server hosting user scripts for firefox";
+      Service = {
+        ExecStart = "%h/.local/bin/user-scripts";
+        Environment = "PATH=${with pkgs; lib.makeBinPath [ python3 bash] }";
+        Restart = "on-failure";
+      };
+      Install.WantedBy = ["default.target"];
+    };
+  };
+
   # enable dark mode
   dconf.settings = {
     "org/gnome/desktop/interface" = {
