@@ -84,6 +84,7 @@
     gtrash
     qrencode
     ripgrep
+    whois
   ];
 
   systemd.user.enable = true;
