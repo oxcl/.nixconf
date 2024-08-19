@@ -83,6 +83,7 @@
     aria2 # cli download manager
     gtrash
     qrencode
+    ripgrep
   ];
 
   systemd.user.enable = true;
