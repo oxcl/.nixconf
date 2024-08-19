@@ -85,6 +85,7 @@
     qrencode
     ripgrep
     whois
+    openssh
   ];
 
   systemd.user.enable = true;
@@ -97,13 +98,6 @@
         Restart = "on-failure";
       };
       Install.WantedBy = ["default.target"];
-    };
-  };
-
-  # enable dark mode
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
     };
   };
 
