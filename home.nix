@@ -86,6 +86,7 @@
     ripgrep
     whois
     openssh
+    vlc
   ];
 
   systemd.user.enable = true;
