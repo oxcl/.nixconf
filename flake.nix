@@ -44,10 +44,17 @@
         inherit system;
         config.allowUnfree = true;
       };
-    in {
-      nixosConfigurations.machine = inputs.nixpkgs.lib.nixosSystem {
+      mkSystem = name: inputs.nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs unstable; };
-        modules = [ ./configuration.nix ];
+        modules = [
+          ./systems/base.nix
+          ./systems/${name}/configuration.nix
+          ({...}: { networking.hostName = name; })
+        ];
+      };
+    in {
+      nixosConfigurations = {
+        machine = mkSystem "machine"; # for bare-metal
       };
       homeConfigurations."user" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
