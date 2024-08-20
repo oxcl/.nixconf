@@ -58,6 +58,8 @@
     woof # open a http server for uploading to current directory. used in .local/bin/serve
     aria2 # cli download manager
     vlc
+    xterm
+    rxvt-unicode-emoji
   ];
 
 
