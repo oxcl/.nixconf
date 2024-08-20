@@ -30,7 +30,7 @@
   };
 
   outputs = { nixpkgs, home-manager,... }@inputs :
-    let
+  let
       system = "x86_64-linux";
       overlays = [
         inputs.iozevka.overlays.default
@@ -44,7 +44,7 @@
         inherit system;
         config.allowUnfree = true;
       };
-      mkSystem = name: inputs.nixpkgs.lib.nixosSystem {
+      mkSystem = name: nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs unstable; };
         modules = [
           ./systems/base.nix
@@ -52,14 +52,19 @@
           ({...}: { networking.hostName = name; })
         ];
       };
-    in {
-      nixosConfigurations = {
-        machine = mkSystem "machine"; # for bare-metal
-      };
-      homeConfigurations."user" = home-manager.lib.homeManagerConfiguration {
+      mkHome = name: home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit inputs unstable; };
-        modules = [ ./home.nix ];
+        modules = [ ./profiles/${name}.nix ];
       };
+  in {
+    nixosConfigurations = {
+      machine = mkSystem "machine"; # for bare-metal
     };
+    homeConfigurations = {
+      base = mkHome "base";
+      dev  = mkHome "dev";
+      full = mkHome "full";
+    };
+  };
 }
