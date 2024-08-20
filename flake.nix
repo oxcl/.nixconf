@@ -44,18 +44,19 @@
         inherit system;
         config.allowUnfree = true;
       };
-      mkSystem = name: nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs unstable; };
+      mkSystem = host: nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs unstable host; };
         modules = [
           ./systems/base.nix
-          ./systems/${name}/configuration.nix
-          ({...}: { networking.hostName = name; })
+          ./systems/${host}/configuration.nix
         ];
       };
-      mkHome = name: home-manager.lib.homeManagerConfiguration {
+      mkHome = profile: home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs unstable; };
-        modules = [ ./profiles/${name}.nix ];
+        extraSpecialArgs = { inherit inputs unstable profile; };
+        modules = [ 
+          ./profiles/${profile}.nix
+        ];
       };
   in {
     nixosConfigurations = {

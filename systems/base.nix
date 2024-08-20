@@ -1,11 +1,12 @@
 # base configuration that should be applied to all nixos systems
-{ config, pkgs, unstable, inputs, ... }:
+{ config, pkgs, unstable, inputs, host, ... }:
 
 {
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
 
+  networking.hostName = host;
   networking.networkmanager.enable = true;
 
   # Set your time zone.

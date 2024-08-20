@@ -1,4 +1,4 @@
-{ config, pkgs, unstable,lib,inputs, ... }: with builtins;
+{ config, pkgs, unstable,lib,inputs,profile, ... }: with builtins;
 
 {
   home.username = "user";
@@ -23,6 +23,10 @@
     # automatically run my stow script to setup dotfiles in home directory after every home-manager/nixos rebuild
     stowHome = lib.hm.dag.entryAfter ["writeBoundary"] ''[ -f $HOME/.local/bin/stowhome ] && PATH="$PATH:${pkgs.stow}/bin" $HOME/.local/bin/stowhome'';
   };
+
+  home.file.".config/env.local".text = ''
+    export _HOME_MANAGER_PROFILE=${profile}
+  '';
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
