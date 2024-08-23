@@ -34,6 +34,14 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      80 433    # HTTP & HTTPS
+      8000 8001 # my ~/.local/bin/serve script
+    ];
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
