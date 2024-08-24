@@ -10,6 +10,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 1;
+  boot.supportedFilesystems = [ "ntfs" ];
 
   # login display manager
   services.displayManager = {
