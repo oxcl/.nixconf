@@ -30,6 +30,12 @@
     export _HOME_MANAGER_PROFILE=${profile}
   '';
 
+  # automatically create xdg user directories like Downloads and Documents
+  xdg.userDirs = {
+    createDirectories = true;
+    enable = true;
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
