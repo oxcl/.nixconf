@@ -10,6 +10,7 @@
     ((emacsPackagesFor emacs29).emacsWithPackages ( epkgs: with epkgs; [
       treesit-grammars.with-all-grammars
       vterm
+      jinx
     ]))
     glow # marakdown preview
     thefuck
@@ -19,5 +20,14 @@
     qrencode
     whois
     jetbrains-mono # fallback for iozevka
+    # spell checkers for emacs
+    aspell
+    aspellDicts.en
+    aspellDicts.de
+    aspellDicts.fa
+    hunspell
+    hunspellDicts.en-us
+    hunspellDicts.de-de
+    hunspellDicts.fa-ir
   ];
 }
