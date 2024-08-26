@@ -60,6 +60,7 @@
     vlc
     xterm
     rxvt-unicode-emoji
+    unstable.v2raya
   ];
 
 
